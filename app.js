@@ -32,13 +32,18 @@ app.post('/movies/', (req, res) => {
 });
 
 app.patch('/movies/:id', (req, res) => {
-
+    console.log('patch movie');
+    movie.update(req,res);
 });
 
 app.put('/movies/:id', (req, res) => {
-
+    console.log('replace movie')
+    movie.replace(req,res);
 });
 
-app.delete('movies/:id')
+app.delete('/movies/:id', (req, res) => {
+    console.log('delete movie')
+    movie.delete(req,res);
+});
 
 app.listen(3000);
