@@ -14,7 +14,7 @@ function getOneMovie(req, res){
     if(movie.length === 1){
         return res.status(200).send(movie[0]);
     }else{
-        return res.status(400).send('no movie for id: ' + id);
+        return res.status(400).send({message:'no movie for id: ' + id});
     }
 
 }
