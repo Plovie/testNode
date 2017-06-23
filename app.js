@@ -1,5 +1,3 @@
-
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const movie = require('./movies');
@@ -13,7 +11,8 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS', 'PATCH');// allow all of this path
     next();
 });
-
+app.set('view engine', 'pug');
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -23,6 +22,9 @@ if (app.get('env') === 'development') {
         res.send(err);
     });
 }
+app.get('/',(req,res) => {
+   res.status(200).render('index.pug');
+});
 
 app.get('/movies',(req, res) =>{
     console.log('get all');
