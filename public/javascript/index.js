@@ -7,4 +7,5 @@ function getMoviesFromDifferentDatabase(id1,id2) {
 
 }
 
-getMoviesFromDifferentDatabase(5,1)
+getMoviesFromDifferentDatabase(1,50)
+
