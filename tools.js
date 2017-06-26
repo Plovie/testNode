@@ -1,7 +1,7 @@
 let movieKeys = require('./config').movieKeys;
 
 let data =   {
-    toto: 1,
+    id: 1,
     title : "Avatar",
     category : 'sciencesfiction',
     releaseYear : "2010",
@@ -16,30 +16,66 @@ let data =   {
     price : 25.46
 };
 
-function checkSameKeys(obj, arr){
-
-    return checkKeysInObj(obj, arr) && checkKeysInArr(obj, arr);
-}
-
-
-function checkKeysInObj(obj, arr) {
-    let objKeys = Object.keys(obj);
-
-    function keysInObj(elem){
-        return objKeys.includes(elem);
-    }
-    return arr.every(keysInObj);
-}
 
 
 
-function checkKeysInArr(obj, arr) {
-    let objKeys = Object.keys(obj);
+// function checkKeysInObj(obj, arr) {
+//     return new Promise((resolve,reject) =>{
+//         let objKeys = Object.keys(obj);
+//         function keysInObj(elem){
+//             return objKeys.includes(elem);
+//         }
+//         if(arr.every(keysInObj))
+//         {
+//             resolve(true)
+//         }else{
+//             reject(false)
+//         }
+//     });
+// }
+//
+//
+//
+// function checkKeysInArr(obj, arr) {
+//     return new Promise((resolve,reject) =>{
+//         let objKeys = Object.keys(obj);
+//         function keysInArr(elem) {
+//             return arr.includes(elem);
+//         }
+//         if(objKeys.every(keysInArr))
+//         {
+//             resolve(true)
+//         }else{
+//             reject(false)
+//         }
+//     });
+// }
+//
+// function checkSameKeys(obj, arr) {
+//     let p1 = checkKeysInArr(obj, arr);
+//     let p2 = checkKeysInArr(obj, arr);
+//     return Promise.all([p1, p2])
+//         .then(values => {
+//             return (values);
+//         })
+//         .catch(err => {
+//             return err;
+//         });
+// }
+//
+// console.log(checkSameKeys(data,movieKeys));
 
-    function keysInArr(elem) {
-        return arr.includes(elem);
-    }
-    return objKeys.every(keysInArr);
-}
+var p = Promise.all([1,2,3]).then(
+// this will be counted as if the iterable passed contains only the resolved promise with value "444", so it gets fulfilled
+var p2 = Promise.all([1,2,3, Promise.resolve(444)]);
+// this will be counted as if the iterable passed contains only the rejected promise with value "555", so it gets rejected
+var p3 = Promise.all([1,2,3, Promise.reject(555)]);
 
-console.log(checkSameKeys(data,movieKeys));
+// using setTimeout we can execute code after the stack is empty
+setTimeout(function(){
+    let test = p;
+    console.log(test);
+    console.log(p);
+    console.log(p2);
+    console.log(p3);
+});
