@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var movieKeys = [
+const movieKeys: any[] = [
     'id',
     'title',
     'category',
@@ -13,4 +11,5 @@ var movieKeys = [
     'lastViewDate',
     'price'
 ];
-exports.movieKeys = movieKeys;
+
+export { movieKeys };

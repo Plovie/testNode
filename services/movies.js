@@ -1,64 +1,52 @@
-const data = require('./data').data;
-
-
-function getAllMovies(){
-    return data;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var data_1 = require("./data");
+function getAllMovies() {
+    return data_1.data;
 }
-
-function createMovie(movie){
-    data.push(movie);
+exports.getAll = getAllMovies;
+function createMovie(movie) {
+    data_1.data.push(movie);
 }
-
-function getLastIdMovies(){
-    return data.reduce(function(prev, current){
-        return (prev.id > current.id) ? prev.id : current.id
+exports.create = createMovie;
+function getLastIdMovies() {
+    var lengthData = data_1.data.length - 1;
+    return data_1.data[lengthData].id;
+}
+exports.getLastId = getLastIdMovies;
+function getOneMovieById(id) {
+    return data_1.data.filter(function (elem) {
+        return elem.id === id;
     });
 }
-
-function getOneMovieById(id){
-  return data.filter(function(elem){
-      return elem.id === id;
-  });
-}
-
-function updateOneMovie(id, modifications){
-    let modificationsKey = Object.keys(modifications);
-    return data.filter(function(value){
-        if(value.id === id){
-            modificationsKey.map(function(key){
+exports.getOneById = getOneMovieById;
+function updateOneMovie(id, modifications) {
+    var modificationsKey = Object.keys(modifications);
+    return data_1.data.filter(function (value) {
+        if (value.id === id) {
+            modificationsKey.map(function (key) {
                 value[key] = modifications[key];
-
             });
             return true;
         }
         return false;
     });
 }
-
-function deleteOneMovie(id){
-  data.map(function(value, index){
-    if(value.id === id){
-        data.splice(index, 1);
-    }
-  });
-}
-
-function replaceOneMovie(movie){
-    data.map(function(value, index){
-        if(value.id === movie.id){
-            data.splice(index,1 );
-            data.splice(index, 0, movie);
+exports.update = updateOneMovie;
+function deleteOneMovie(id) {
+    data_1.data.map(function (value, index) {
+        if (value.id === id) {
+            data_1.data.splice(index, 1);
         }
     });
 }
-
-module.exports = {
-
-    getAll: getAllMovies,
-    getOneById: getOneMovieById,
-    getLastId: getLastIdMovies,
-    create: createMovie,
-    update: updateOneMovie,
-    delete: deleteOneMovie,
-    replace: replaceOneMovie
+exports.delete = deleteOneMovie;
+function replaceOneMovie(movie) {
+    data_1.data.map(function (value, index) {
+        if (value.id === movie.id) {
+            data_1.data.splice(index, 1);
+            data_1.data.splice(index, 0, movie);
+        }
+    });
 }
+exports.replace = replaceOneMovie;

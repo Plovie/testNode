@@ -1,35 +1,24 @@
-function checkSameKeys(obj, arr){
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function checkSameKeys(obj, arr) {
+    console.log(checkKeysInObj(obj, arr), checkKeysInArr(obj, arr));
     return checkKeysInObj(obj, arr) && checkKeysInArr(obj, arr);
 }
-
-
+exports.checkSameKeys = checkSameKeys;
 function checkKeysInObj(obj, arr) {
-    let objKeys = Object.keys(obj);
-
-    function keysInObj(elem){
-        return objKeys.includes(elem);
+    var objKeys = Object.keys(obj);
+    var objKeysString = JSON.stringify(objKeys);
+    function keysInObj(elem) {
+        return objKeysString.indexOf(elem) > 0;
     }
     return arr.every(keysInObj);
 }
-
-
-
 function checkKeysInArr(obj, arr) {
-    let objKeys = Object.keys(obj);
-
+    var objKeys = Object.keys(obj);
+    var arrKeysString = JSON.stringify(arr);
     function keysInArr(elem) {
-        return arr.includes(elem);
+        return arrKeysString.indexOf(elem) > 0;
     }
     return objKeys.every(keysInArr);
 }
-
-
-
-
-module.exports = {
-
-    checkSameKeys: checkSameKeys,
-    checkKeysInArr: checkKeysInArr,
-
-}
+exports.checkKeysInArr = checkKeysInArr;

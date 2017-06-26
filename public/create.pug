@@ -1,0 +1,17 @@
+include ../../testNode/public/modules/head
+include ../../testNode/public/modules/nav
++head(['create.js'])
+    body
+        +navbar()
+        form
+            div.row
+                div.medium-6.columns
+                    label
+                        | Name
+                        input(type='text', placeholder='Name')#name
+                div.medium-6.columns
+                    label
+                        | Age
+                        input(type='number', placeholder='Age')#age
+                div.medium-6.columns
+                    button(type="button", onclick="createUser()").hollow.button.success#create Create

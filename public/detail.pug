@@ -1,0 +1,23 @@
+include ../../testNode/public/modules/head
+include ../../testNode/public/modules/nav
++head(['detail.js'])
+    body
+        +navbar()
+        div.search
+            input(type="text", name='search', placeholder='Name')
+            button(href='#').hollow.button Search
+        table.hover
+            thead
+                tr
+                    th(width='200') Table Header
+                    th Table Header
+                    th(width='150') Table Header
+                    th(width='150') Table Header
+            tbody#list-user
+                    tr
+                        td#name
+                        td#age
+                        td
+                            a()#delete.hollow.button.warning delete
+                        td
+                            a()#update.hollow.button.success Update
