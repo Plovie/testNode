@@ -1,6 +1,6 @@
 include ../../testNode/public/modules/head
 include ../../testNode/public/modules/nav
-+head([])
++head(["index.js"])
     body
         +navbar()
         div.search
@@ -20,6 +20,5 @@ include ../../testNode/public/modules/nav
                         td= movie.description
                         td
                             a(href='/detail.html?id='+movie.id).hollow.button Show Details
-
-
-
+                        td
+                            a( href="", id = movie.id).hollow.button.warning.fav Add Favorite

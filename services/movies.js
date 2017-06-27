@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var data_1 = require("./data");
+const data_1 = require("./data");
 function getAllMovies() {
     return data_1.data;
 }
@@ -10,7 +10,7 @@ function createMovie(movie) {
 }
 exports.create = createMovie;
 function getLastIdMovies() {
-    var lengthData = data_1.data.length - 1;
+    let lengthData = data_1.data.length - 1;
     return data_1.data[lengthData].id;
 }
 exports.getLastId = getLastIdMovies;
@@ -21,7 +21,7 @@ function getOneMovieById(id) {
 }
 exports.getOneById = getOneMovieById;
 function updateOneMovie(id, modifications) {
-    var modificationsKey = Object.keys(modifications);
+    let modificationsKey = Object.keys(modifications);
     return data_1.data.filter(function (value) {
         if (value.id === id) {
             modificationsKey.map(function (key) {
@@ -50,3 +50,4 @@ function replaceOneMovie(movie) {
     });
 }
 exports.replace = replaceOneMovie;
+//# sourceMappingURL=movies.js.map

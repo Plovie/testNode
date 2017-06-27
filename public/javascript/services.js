@@ -30,17 +30,10 @@ function deleteAction(id){
 }
 
 function getOne(id){
-    http.open("GET", 'http://localhost:3000/movies/'+id, true);
-
-//Send the proper header information along with the request
-    http.setRequestHeader("Content-type", "application/json");
-
-    http.onreadystatechange = function(event) {//Call a function when the state changes.
-        if(http.readyState == 4 && http.status == 200){
-           return event.target.response;
-        }
-    }
-     http.send();
+   return fetch('http://localhost:3000/movies/'+id)
+           .then((value) =>{
+               console.log(value);
+               value.json()})
 }
 
 function update(id, user){

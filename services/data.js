@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var data = [
+let data = [
     {
         id: 1,
         title: "Avatar",
@@ -136,3 +136,4 @@ var data = [
     }
 ];
 exports.data = data;
+//# sourceMappingURL=data.js.map

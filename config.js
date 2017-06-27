@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var movieKeys = [
+const movieKeys = [
     'id',
     'title',
     'category',
@@ -14,3 +14,4 @@ var movieKeys = [
     'price'
 ];
 exports.movieKeys = movieKeys;
+//# sourceMappingURL=config.js.map

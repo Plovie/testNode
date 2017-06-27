@@ -13,6 +13,7 @@ function getOneMovie(req, res) {
     let id = parseInt(req.params.id);
     let movie = serviceMovie.getOneById(id);
     if (movie.length === 1) {
+        console.log(movie);
         return res.status(200).send({ movie: movie[0] });
     }
     else {
