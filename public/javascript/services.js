@@ -1,5 +1,21 @@
 let http = new XMLHttpRequest();
 
+
+function parseJSON(response) {
+    return response.json()
+}
+
+function checkStatus(response) {
+    if (response.status >= 200 && response.status < 300) {
+        return response
+    } else {
+        return parseJSON(response).then(function (data) {
+            let error = '------ Error Node --------------- ' + data.message;
+            throw error
+        });
+    }
+}
+
 function post(user){
     http.open("POST", 'http://localhost:3000/movies', true);
 
@@ -31,9 +47,8 @@ function deleteAction(id){
 
 function getOne(id){
    return fetch('http://localhost:3000/movies/'+id)
-           .then((value) =>{
-               console.log(value);
-               value.json()})
+       .then(checkStatus)
+       .then(parseJSON)
 }
 
 function update(id, user){
